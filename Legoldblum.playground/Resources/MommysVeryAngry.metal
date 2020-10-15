@@ -32,8 +32,5 @@ kernel void lifeUhFindsAWay(texture2d<float, access::write> o[[texture(0)]],
   float sdist = max(delta.x, delta.y);
 
   col *= 0.8 + smoothstep(0.95, 0.8, sdist) * 0.2;
-
-  float3 ic = i.read(gid).rgb;
-  float4 color = float4(ic, 1.0);
   o.write(float4(col, 1.0), gid);
 }
